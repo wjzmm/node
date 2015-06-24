@@ -1,4 +1,4 @@
-var mongodb = require('mongoose');
+var mongoose = require('mongoose');
 var db = mongoose.createConnection('mongodb://127.0.0.1:27017/test');
 
 db.on("error", function(error){
@@ -12,20 +12,23 @@ var mongooseSchema = new mongoose.Schema({
 mongooseSchema.methods.findByUserName = function(username, callback){
 	return this.model('mongoose').find({username: username}, callback);
 }
+console.log('findByAge');
 mongooseSchema.methods.findByAge = function(age, callback){
-	return this.model('mongoose').find({age: age}, callback);}
+	return this.model('mongoose').find({age: age}, callback);
+}
+
 var mongooseModel = db.model('mongoose', mongooseSchema);
 var doc = {username : 'wang', age : 25};
 var mongooseEntity = new mongooseModel(doc);
 mongooseEntity.save(function(error){
 	if(error){
-		console.log(error);
+		console.log("error in save");
 	}else{
 		console.log('saved successfully');
 	}
 	db.close();
 });
-mongooseModel.update(conditions, update, options, callback);
+console.log('update');
 var conditions = {username: 'zhang'};
 var update = {$set: {age: 20}};
 var options = {upsert: true};
@@ -37,6 +40,7 @@ mongooseModel.update(conditions, update, options, function(error){
 	}
 	db.close();
 });
+console.log('find');
 var criteria = {username: 'zhang'};
 var fields = {age: 1};
 var options = {};
@@ -48,7 +52,8 @@ mongooseModel.find(criteria, fields, options, function(error, result){
 	}
 	db.close();
 });
-var conditions = {username: wang};
+console.log('remove');
+var conditions = {username: 'wang'};
 mongooseModel.remove(conditions, function(error){
 	if(error){
 		console.log(error);
