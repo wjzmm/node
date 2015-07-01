@@ -18,8 +18,8 @@ mongooseSchema.methods.findByAge = function(age, callback){
 }
 
 var mongooseModel = db.model('mongoose', mongooseSchema);
-var doc = {username : 'wang', age : 25};
-var mongooseEntity = new mongooseModel(doc);
+var doc = {username : "wang", age : 25};
+/*var mongooseEntity = new mongooseModel(doc);
 mongooseEntity.save(function(error){
 	if(error){
 		console.log("error in save");
@@ -27,6 +27,13 @@ mongooseEntity.save(function(error){
 		console.log('saved successfully');
 	}
 	db.close();
+});*/
+mongooseModel.create(doc, function(error){
+	if(error){
+		console.log(error);
+	}else{
+		console.log("create OK");
+	}
 });
 console.log('update');
 var conditions = {username: 'zhang'};
@@ -38,11 +45,11 @@ mongooseModel.update(conditions, update, options, function(error){
 	}else{
 		console.log("update success");
 	}
-	db.close();
+//	db.close();
 });
 console.log('find');
 var criteria = {username: 'zhang'};
-var fields = {age: 1};
+var fields = {age: 01};
 var options = {};
 mongooseModel.find(criteria, fields, options, function(error, result){
 	if(error){
@@ -50,7 +57,7 @@ mongooseModel.find(criteria, fields, options, function(error, result){
 	}else{
 		console.log(result);
 	}
-	db.close();
+//	db.close();
 });
 console.log('remove');
 var conditions = {username: 'wang'};
@@ -60,5 +67,5 @@ mongooseModel.remove(conditions, function(error){
 	}else{
 		console.log("delete success");
 	}
-	db.close();
+//	db.close();
 });
