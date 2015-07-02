@@ -24,12 +24,13 @@ User.prototype.save = function(callback){
 			collection.insert(
 					user,
 					{safe: true},
-					function(err, user){
+					function(err, result){
 						mongodb.close();
 						if(err){
 							return callback(err);
 						}
-						callback(null, user[0]);
+						console.log(result);
+						callback(null, result[0]);
 					});
 		});
 	});

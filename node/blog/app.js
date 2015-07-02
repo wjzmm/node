@@ -27,9 +27,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({ resave: true,
+app.use(session({ secret: settings.cookieSecret,
                   saveUninitialized: true,
-                  secret: settings.cookieSecret }));
+				  resave: true}));
 
 app.use('/', routes);
 app.use('/post', routes);

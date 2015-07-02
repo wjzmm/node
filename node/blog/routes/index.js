@@ -4,13 +4,21 @@ var crypto = require('crypto'),
 	User = require('../models/user.js');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-	res.render('index', { title: 'Express' });
+router.get('/', function(req, res) {
+	res.render('index', { title: 'HomePage',
+						  user: req.session.user,
+						  success: req.flash('success').toString(),
+						  error: req.flash('error').toString()
+						});
 });
-router.get('/reg', function(req, res, next){
-	res.render('reg', { title: 'Reg'});
+router.get('/reg', function(req, res){
+	res.render('reg', { title: 'Reg',
+						user: req.session.user,
+						success: req.flash('success').toString(),
+					    error: req.flash('error').toString()
+					  });
 });
-router.post('/reg', function(req, res, next){
+router.post('/reg', function(req, res){
 	var name = req.body.name,
 		password = req.body.password,
 		password_re = req.body['password-repeat'];
@@ -27,35 +35,39 @@ router.post('/reg', function(req, res, next){
 	});
 
 	User.get(newUser.name, function(err, user){
+	
 		if(user){
 			req.flash('error', '用户名已存在');
 			console.log('error1');
 			return res.redirect('/reg');
 		}
 		newUser.save(function(err, user){
+			console.log(user+"--1--");
 			if(err){
 				req.flash('error', err);
 				console.log('error2'+err);
 				return res.redirect('/reg');
 			}
+		
 			req.session.user = user;
+			//console.log(req.session.user+'  --  ||  --  '+user);
 			req.flash('success', '注册成功！');
 			console.log('success');
 			res.redirect('/');
 		});
 	});
 });
-router.get('/login', function(req, res, next){
+router.get('/login', function(req, rest){
 	res.render('login', { title: 'Login'});
 });
-router.post('/login', function(req, res, next){
+router.post('/login', function(req, res){
 });
-router.get('/post', function(req, res, next){
+router.get('/post', function(req, res){
 	res.render('post', { title: 'Post'});
 });
-router.post('/post', function(req, res, next){
+router.post('/post', function(req, res){
 });
-router.get('/logout', function(req, res, next){
+router.get('/logout', function(req, res){
 });
 
 module.exports = router;
