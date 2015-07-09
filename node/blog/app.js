@@ -36,6 +36,7 @@ app.use('/post', routes);
 app.use('/login', routes);
 app.use('/reg', routes);
 app.use('/logout', routes);
+app.use('/upload', routes);
 
 //app.use('/users', users);
 

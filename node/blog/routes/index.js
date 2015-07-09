@@ -1,16 +1,30 @@
 var express = require('express');
 var router = express.Router();
 var crypto = require('crypto'),
-	User = require('../models/user.js');
+	User = require('../models/user.js'),
+	Post = require('../models/post.js'),
+	multiparty = require('multiparty'),
+	fs = require('fs');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-	res.render('index', { title: '主页',
-						  user: req.session.user,
-						  success: req.flash('success').toString(),
-						  error: req.flash('error').toString()
-						});
+	Post.get(null, function(err, posts){
+		if(err){
+			console.log("error");
+			posts = [];
+		}
+		console.log(posts.time);
+		res.render('index', { title: '主页',
+							  user: req.session.user,
+							  posts: posts,
+							  success: req.flash('success').toString(),
+						      error: req.flash('error').toString()
+		});
+		
+	});
 });
+
+router.get('/reg', checkNotLogin);
 router.get('/reg', function(req, res){
 	res.render('reg', { title: '注册',
 						user: req.session.user,
@@ -18,6 +32,8 @@ router.get('/reg', function(req, res){
 					    error: req.flash('error').toString()
 					  });
 });
+
+router.post('/reg', checkNotLogin);
 router.post('/reg', function(req, res){
 	var name = req.body.name,
 		password = req.body.password,
@@ -57,12 +73,16 @@ router.post('/reg', function(req, res){
 		});
 	});
 });
+
+router.get('/login', checkNotLogin);
 router.get('/login', function(req, res){
 	res.render('login', { title: '注册',
 						  user: req.session.user,
 						  success: req.flash('success').toString(),
 					      error: req.flash('error').toString()});
 });
+
+router.post('/login', checkNotLogin);
 router.post('/login', function(req, res){
 	var md5 = crypto.createHash('md5'),
 		password = md5.update(req.body.password).digest('hex');
@@ -81,15 +101,86 @@ router.post('/login', function(req, res){
 
 	});
 });
+
+router.get('/post', checkLogin);
 router.get('/post', function(req, res){
-	res.render('post', { title: '发表'});
+	res.render('post', { title: '注册',
+				  user: req.session.user,
+				  success: req.flash('success').toString(),
+			      error: req.flash('error').toString()
+	});
 });
+
+router.post('/post', checkLogin);
 router.post('/post', function(req, res){
+	var currentUser = req.session.user,
+		post = new Post(currentUser.name, req.body.title, req.body.post);
+	//console.log(currentUser.name);
+	post.save(function(err){
+		if(err){
+			req.flash('error', err);
+			return res.redirect('/');
+		}
+		req.flash('success', '发布成功！');
+		res.redirect('/');
+	});
 });
+
+router.get('/logout', checkLogin);
 router.get('/logout', function(req, res){
 	req.session.user = null;
 	req.flash('success', '登出成功！');
 	res.redirect('/');
 });
+router.get('/upload', checkLogin);
+router.get('/upload', function(req, res){
+	res.render('upload',{
+		title: '文件上传',
+		user: req.session.user,
+		success: req.flash('success').toString(),
+		error: req.flash('error').toString()
+	})
+});
+router.post('/upload', checkLogin);
 
+router.post('/upload', function(req, res){
+	console.log('uploading................');
+	var form = new multiparty.From({uploadDir: './public/images/'});
+	form.parse(req, function(err, fields, files){
+		var filesTmp = JSON.querystring.stringify(files, null, 2);
+
+		if(err){
+			console.log('parse error: ' + err);
+		}else{
+			console.log('parse files: ' + filesTmp);
+			var inputFile = files.inputFile[0];
+		    var uploadedPath = inputFile.path;
+ 	        var dstPath = './public/images/' + inputFile.originalFilename;
+ 	        fs.rename(uploadedPath, dstPath, function(err) {
+	            if(err){
+	            	console.log('rename error: ' + err);
+		        } else {
+	            	console.log('rename ok');
+	 	        }
+			});
+		}
+	});	
+	req.flash('success', '文件上传成功！');
+	res.redirect('/upload');
+});
+/* power control*/
+function checkLogin(req, res, next){
+	if(!req.session.user){
+		req.flash('error', '未登录！');
+		res.redirect('/login');
+	}
+	next();
+}
+function checkNotLogin(req, res, next){
+	if(req.session.user){
+		req.flash('error', '已登录！');
+		res.redirect('back');
+	}
+	next();
+}
 module.exports = router;

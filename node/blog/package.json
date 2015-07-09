@@ -17,6 +17,8 @@
 	"mongodb": ">= 1.4.8",
 	"mongoose": "*",
 	"express-session": "^1.7.2",
-	"connect-flash": "*"
+	"connect-flash": "*",
+	"markdown": "*",
+	"multiparty": "*"
   }
 }
