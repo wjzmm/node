@@ -145,24 +145,32 @@ router.post('/upload', checkLogin);
 
 router.post('/upload', function(req, res){
 	console.log('uploading................');
-	var form = new multiparty.From({uploadDir: './public/images/'});
+	var form = new multiparty.Form({uploadDir: '../public/images/'});
 	form.parse(req, function(err, fields, files){
-		var filesTmp = JSON.querystring.stringify(files, null, 2);
-
+		var filesTmp = JSON.stringify(files, null, 2);
 		if(err){
 			console.log('parse error: ' + err);
 		}else{
 			console.log('parse files: ' + filesTmp);
-			var inputFile = files.inputFile[0];
-		    var uploadedPath = inputFile.path;
- 	        var dstPath = './public/images/' + inputFile.originalFilename;
- 	        fs.rename(uploadedPath, dstPath, function(err) {
-	            if(err){
-	            	console.log('rename error: ' + err);
-		        } else {
-	            	console.log('rename ok');
-	 	        }
-			});
+			for(var i in files){
+				var file = files[i];
+				console.log(file[0].fieldName);
+				if(file[0].size == 0){
+					fs.unlinkSync(file[0].path);
+					console.log('Successfully removed an empty file!');
+				}
+				//console.log(file.path);
+			    var uploadedPath = file[0].path;
+			    //console.log(uploadedPath);
+	 	        var dstPath = '../public/images/' + file[0].originalFilename;
+	 	        fs.rename(uploadedPath, dstPath, function(err) {
+		            if(err){
+		            	console.log('rename error: ' + err);
+			        } else {
+		            	console.log('rename ok');
+		 	        }
+				});
+			}
 		}
 	});	
 	req.flash('success', '文件上传成功！');
