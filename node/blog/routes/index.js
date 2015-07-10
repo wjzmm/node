@@ -236,11 +236,10 @@ router.post('/edit/:name/:day/:title', checkLogin);
 router.post('/edit/:name/:day/:title', function(req, res){
 	var currentUser = req.session.user;
 	Post.update(currentUser.name, req.params.day, req.params.title, req.body.post, function(err){
-		var url = "/u/" + req.params.name + "/" + req.params.day + "/" + req.params.title;
-		var uurl = "/测试";
+		var url = "/u/" + req.params.name + "/" + req.params.day + "/" + encodeURIComponent(req.params.title);
 		if(err){
 			req.flash('error', err);
-			return res.redirect(uurl);
+			return res.redirect(url);
 		}
 		req.flash('success', '修改成功！');
 		res.redirect(url);

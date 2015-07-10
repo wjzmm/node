@@ -124,7 +124,8 @@ Post.edit = function(name, day, title, callback){
 				if(err){
 					return callback(err);
 				}
-				doc.post = markdown.toHTML(doc.post);
+				//console.log("---<>---"+doc);
+				//doc.post = markdown.toHTML(doc.post);
 				callback(null, doc);
 			})
 		});
@@ -145,6 +146,8 @@ Post.update = function(name, day, title, post, callback){
 				"name": name,
 				"time.day": day,
 				"title": title
+			},{
+				$set:{post: post}
 			}, function(err){
 				mongodb.close();
 				if(err){
