@@ -120,7 +120,8 @@ router.get('/post', function(req, res){
 router.post('/post', checkLogin);
 router.post('/post', function(req, res){
 	var currentUser = req.session.user,
-		post = new Post(currentUser.name, req.body.title, req.body.post);
+		tags = [req.body.tag1, req.body.tag2, req.body.tag3],
+		post = new Post(currentUser.name, req.body.title, tags, req.body.post);
 	//console.log(currentUser.name);
 	post.save(function(err){
 		if(err){
@@ -182,6 +183,52 @@ router.post('/upload', function(req, res){
 	req.flash('success', '文件上传成功！');
 	res.redirect('/upload');
 });
+
+router.get('/archive', function(req, res){
+	Post.getArchive(function(err, posts){
+		if(err){
+			req.flash('error', err);
+			return res.redirect('/');
+		}
+		res.render('archive', {
+			title: "存档",
+			posts: posts,
+			user: req.session.user,
+			success: req.flash('success').toString(),
+			error: req.flash('error').toString()
+		});
+	});
+});
+router.get('/tags', function(req, res){
+	Post.getTags(function(err, posts){
+		if(err){
+			req.flash('error', err);
+			return res.redirect('/');
+		}
+		res.render('tags', {
+			title: "标签",
+			posts: posts,
+			user: req.session.user,
+			success: req.flash('success').toString(),
+			error: req.flash('error').toString()
+		});
+	});
+});
+router.get('/tags/:tag', function(req, res){
+	Post.getTag(req.params.tag, function(err, posts){
+		if(err){
+			req.flash('error', err);
+			return res.redirect('/');
+		}
+		res.render('tag', {
+			title: "标签:" + req.params.tag,
+			posts: posts,
+			user: req.session.user,
+			success: req.flash('success').toString(),
+			error: req.flash('error').toString()
+		});
+	});
+});
 router.get('/u/:name', function(req, res){
 	var page = req.query.p ? parseInt(req.query.p) : 1;
 	User.get(req.params.name, function(err, user){
@@ -190,22 +237,22 @@ router.get('/u/:name', function(req, res){
 			return res.redirect('/');
 		}
 		Post.getTen(null, page, function(err, posts, total){
-		if(err){
-			req.flash('error', err);
-			return res.redirect('/');
-		}
-		//console.log(posts.time);
-		res.render('user', { title: user.name,
-							  user: req.session.user,
-							  posts: posts,
-							  page: page,
-							  isFirstPage: (page - 1) == 0,
-							  isLastPage: ((page - 1) * 10 + posts.length) == total,
-							  success: req.flash('success').toString(),
-						      error: req.flash('error').toString()
+			if(err){
+				req.flash('error', err);
+				return res.redirect('/');
+			}
+			//console.log(posts.time);
+			res.render('user', { title: user.name,
+								  user: req.session.user,
+								  posts: posts,
+								  page: page,
+								  isFirstPage: (page - 1) == 0,
+								  isLastPage: ((page - 1) * 10 + posts.length) == total,
+								  success: req.flash('success').toString(),
+							      error: req.flash('error').toString()
+			});
+			
 		});
-		
-	});
 	});
 });
 router.get('/u/:name/:day/:title', function(req, res){
