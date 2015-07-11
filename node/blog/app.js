@@ -42,6 +42,8 @@ app.use('/comment', routes);
 app.use('/archive', routes);
 app.use('/tags', routes);
 app.use('/tag', routes);
+app.use('/search', routes);
+app.use('/links', routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

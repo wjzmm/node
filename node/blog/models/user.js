@@ -1,4 +1,5 @@
 var mongodb = require('./db');
+var crypto = require('crypto');
 function User(user){
 	this.name = user.name;
 	this.password = user.password;
@@ -7,6 +8,7 @@ function User(user){
 module.exports = User;
 
 User.prototype.save = function(callback){
+	var md5 = crypto.createHash('md5');
 	var user = {
 		name: this.name,
 		password: this.password,
