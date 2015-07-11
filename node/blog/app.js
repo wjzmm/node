@@ -38,7 +38,7 @@ app.use('/reg', routes);
 app.use('/logout', routes);
 app.use('/upload', routes);
 app.use('/article', routes);
-
+app.use('/comment', routes);
 //app.use('/users', users);
 
 // catch 404 and forward to error handler

@@ -24,7 +24,8 @@ Post.prototype.save = function(callback){
 		name: this.name,
 		time: time,
 		title: this.title,
-		post: this.post
+		post: this.post,
+		comments: []
 	};
 	mongodb.open(function(err, db){
 		if(err){
@@ -50,7 +51,7 @@ Post.prototype.save = function(callback){
 	});
 };
 
-Post.getAll = function(name, callback){
+Post.getTen = function(name, page, callback){
 	mongodb.open(function(err, db){
 		if(err){
 			return callback(err);
@@ -64,19 +65,24 @@ Post.getAll = function(name, callback){
 			if(name){
 				query.name = name;
 			}
-			collection.find(query).sort({
-				time: -1
-			}).toArray(function(err, docs){
-				console.log(docs);
-				mongodb.close();
-				if(err){
-					return callback(err);
-				}
-				docs.forEach(function(doc){
-					doc.post = markdown.toHTML(doc.post);
+			collection.count(query, function(err, total){	
+				collection.find(query, {
+					skip: (page - 1) * 10,
+					limit: 10
+				}).sort({
+					time: -1
+				}).toArray(function(err, docs){
+					//console.log(docs);
+					mongodb.close();
+					if(err){
+						return callback(err);
+					}
+					docs.forEach(function(doc){
+						doc.post = markdown.toHTML(doc.post);
+					});
+					callback(null, docs, total);
 				});
-				callback(null, docs);
-			});
+			})
 		});
 	});
 };
@@ -99,7 +105,13 @@ Post.getOne = function(name, day, title, callback){
 				if(err){
 					return callback(err);
 				}
-				doc.post = markdown.toHTML(doc.post);
+				if(doc){
+					doc.post = markdown.toHTML(doc.post);
+					doc.comments.forEach(function(comment){
+						comment.content = markdown.toHTML(comment.content);
+					});
+				}
+				
 				callback(null, doc);
 			})
 		});
