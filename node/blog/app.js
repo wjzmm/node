@@ -11,7 +11,9 @@ var partials = require('express-partials');
 
 var routes = require('./routes/index');
 //var users = require('./routes/users');
-
+var fs =require('fs');
+var accesslog = fs.createWriteStream('access.log', {flags: 'a'});
+var errorlog = =fs.createWriteStream('error.log', {flags: 'a'});
 var app = express();
 
 // view engine setup
@@ -23,10 +25,16 @@ app.use(partials());
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
+app.use(logger({stream: accesslog}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(function(err, req, res, next){
+    var meta = '[' + new Date() + ']' + req.url + '\n';
+    errorlog.write(meta + err.stack + '\n');
+    next();
+});
 app.use(session({ secret: settings.cookieSecret,
                   saveUninitialized: true,
 				  resave: true}));
