@@ -19,6 +19,8 @@
 	"express-session": "^1.7.2",
 	"connect-flash": "*",
 	"markdown": "*",
-	"multiparty": "*"
+	"multiparty": "*",
+  "passport": "*",
+  "passport-github": "*"
   }
 }

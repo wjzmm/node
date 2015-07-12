@@ -13,15 +13,18 @@ var routes = require('./routes/index');
 //var users = require('./routes/users');
 var fs =require('fs');
 var accesslog = fs.createWriteStream('access.log', {flags: 'a'});
-var errorlog = =fs.createWriteStream('error.log', {flags: 'a'});
+var errorlog = fs.createWriteStream('error.log', {flags: 'a'});
 var app = express();
 
+var passport = require('passport'),
+    GithubStrategy = require('passport-github').Strategy;
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(flash());
 app.use(partials());
 
+app.use(passport.initialize());
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
@@ -62,6 +65,13 @@ app.use(function(req, res, next) {
 
 // error handlers
 
+passport.use(new GithubStrategy({
+  clientID: "16add8fa2bae9c6a6b11",
+  clientSecret: "da67145fb43c2a986cc84ed6cf1ef059ef386ef0",
+  callbackURL: "http://localhost:3000/login/github/callback"
+}, function(acessToken, refreshToken, profile, done){
+    done(null, profile);
+}));
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {

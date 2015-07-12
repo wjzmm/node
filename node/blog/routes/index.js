@@ -1,4 +1,5 @@
 var express = require('express');
+var passport = require('passport');
 var router = express.Router();
 var crypto = require('crypto'),
 	User = require('../models/user.js'),
@@ -88,6 +89,15 @@ router.get('/login', function(req, res){
 					      error: req.flash('error').toString()});
 });
 
+router.get('/login/github', passport.authenticate('github', {session: false}));
+router.get('/login/github/callback', passport.authenticate('github', {
+		session: false,
+		failureRedirect: '/login',
+		successFlash: '登录成功？'
+	}), function(req, res){
+		req.session.user = {name: req.user.username, head: "http://www.gravatar.com/avatar/" + req.user._json.gravatar_id + "?s=48"};
+		res.redirect('/');
+});
 router.post('/login', checkNotLogin);
 router.post('/login', function(req, res){
 	var md5 = crypto.createHash('md5'),
