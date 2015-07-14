@@ -1,0 +1,429 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'I:\\nodejs\\\\node.exe',
+1 verbose cli   'I:\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.35
+4 verbose node symlink I:\nodejs\\node.exe
+5 verbose readDependencies using package.json deps
+6 verbose install where, deps [ 'I:\\git\\node\\spider',
+6 verbose install   [ 'debug', 'cheerio', 'requset', 'async', 'mysql' ] ]
+7 info preinstall sina-blog-proxy@0.0.1
+8 verbose readDependencies using package.json deps
+9 verbose cache add [ 'debug@0.7.2', null ]
+10 verbose cache add name=undefined spec="debug@0.7.2" args=["debug@0.7.2",null]
+11 verbose parsed url { protocol: null,
+11 verbose parsed url   slashes: null,
+11 verbose parsed url   auth: null,
+11 verbose parsed url   host: null,
+11 verbose parsed url   port: null,
+11 verbose parsed url   hostname: null,
+11 verbose parsed url   hash: null,
+11 verbose parsed url   search: null,
+11 verbose parsed url   query: null,
+11 verbose parsed url   pathname: 'debug@0.7.2',
+11 verbose parsed url   path: 'debug@0.7.2',
+11 verbose parsed url   href: 'debug@0.7.2' }
+12 verbose cache add [ 'cheerio@0.12.3', null ]
+13 verbose cache add name=undefined spec="cheerio@0.12.3" args=["cheerio@0.12.3",null]
+14 verbose parsed url { protocol: null,
+14 verbose parsed url   slashes: null,
+14 verbose parsed url   auth: null,
+14 verbose parsed url   host: null,
+14 verbose parsed url   port: null,
+14 verbose parsed url   hostname: null,
+14 verbose parsed url   hash: null,
+14 verbose parsed url   search: null,
+14 verbose parsed url   query: null,
+14 verbose parsed url   pathname: 'cheerio@0.12.3',
+14 verbose parsed url   path: 'cheerio@0.12.3',
+14 verbose parsed url   href: 'cheerio@0.12.3' }
+15 verbose cache add [ 'requset@2.27.0', null ]
+16 verbose cache add name=undefined spec="requset@2.27.0" args=["requset@2.27.0",null]
+17 verbose parsed url { protocol: null,
+17 verbose parsed url   slashes: null,
+17 verbose parsed url   auth: null,
+17 verbose parsed url   host: null,
+17 verbose parsed url   port: null,
+17 verbose parsed url   hostname: null,
+17 verbose parsed url   hash: null,
+17 verbose parsed url   search: null,
+17 verbose parsed url   query: null,
+17 verbose parsed url   pathname: 'requset@2.27.0',
+17 verbose parsed url   path: 'requset@2.27.0',
+17 verbose parsed url   href: 'requset@2.27.0' }
+18 verbose cache add [ 'async@0.2.9', null ]
+19 verbose cache add name=undefined spec="async@0.2.9" args=["async@0.2.9",null]
+20 verbose parsed url { protocol: null,
+20 verbose parsed url   slashes: null,
+20 verbose parsed url   auth: null,
+20 verbose parsed url   host: null,
+20 verbose parsed url   port: null,
+20 verbose parsed url   hostname: null,
+20 verbose parsed url   hash: null,
+20 verbose parsed url   search: null,
+20 verbose parsed url   query: null,
+20 verbose parsed url   pathname: 'async@0.2.9',
+20 verbose parsed url   path: 'async@0.2.9',
+20 verbose parsed url   href: 'async@0.2.9' }
+21 verbose cache add [ 'mysql@2.x', null ]
+22 verbose cache add name=undefined spec="mysql@2.x" args=["mysql@2.x",null]
+23 verbose parsed url { protocol: null,
+23 verbose parsed url   slashes: null,
+23 verbose parsed url   auth: null,
+23 verbose parsed url   host: null,
+23 verbose parsed url   port: null,
+23 verbose parsed url   hostname: null,
+23 verbose parsed url   hash: null,
+23 verbose parsed url   search: null,
+23 verbose parsed url   query: null,
+23 verbose parsed url   pathname: 'mysql@2.x',
+23 verbose parsed url   path: 'mysql@2.x',
+23 verbose parsed url   href: 'mysql@2.x' }
+24 verbose cache add name="debug" spec="0.7.2" args=["debug","0.7.2"]
+25 verbose parsed url { protocol: null,
+25 verbose parsed url   slashes: null,
+25 verbose parsed url   auth: null,
+25 verbose parsed url   host: null,
+25 verbose parsed url   port: null,
+25 verbose parsed url   hostname: null,
+25 verbose parsed url   hash: null,
+25 verbose parsed url   search: null,
+25 verbose parsed url   query: null,
+25 verbose parsed url   pathname: '0.7.2',
+25 verbose parsed url   path: '0.7.2',
+25 verbose parsed url   href: '0.7.2' }
+26 verbose addNamed [ 'debug', '0.7.2' ]
+27 verbose addNamed [ '0.7.2', '0.7.2' ]
+28 verbose cache add name="cheerio" spec="0.12.3" args=["cheerio","0.12.3"]
+29 verbose parsed url { protocol: null,
+29 verbose parsed url   slashes: null,
+29 verbose parsed url   auth: null,
+29 verbose parsed url   host: null,
+29 verbose parsed url   port: null,
+29 verbose parsed url   hostname: null,
+29 verbose parsed url   hash: null,
+29 verbose parsed url   search: null,
+29 verbose parsed url   query: null,
+29 verbose parsed url   pathname: '0.12.3',
+29 verbose parsed url   path: '0.12.3',
+29 verbose parsed url   href: '0.12.3' }
+30 verbose addNamed [ 'cheerio', '0.12.3' ]
+31 verbose addNamed [ '0.12.3', '0.12.3' ]
+32 verbose cache add name="requset" spec="2.27.0" args=["requset","2.27.0"]
+33 verbose parsed url { protocol: null,
+33 verbose parsed url   slashes: null,
+33 verbose parsed url   auth: null,
+33 verbose parsed url   host: null,
+33 verbose parsed url   port: null,
+33 verbose parsed url   hostname: null,
+33 verbose parsed url   hash: null,
+33 verbose parsed url   search: null,
+33 verbose parsed url   query: null,
+33 verbose parsed url   pathname: '2.27.0',
+33 verbose parsed url   path: '2.27.0',
+33 verbose parsed url   href: '2.27.0' }
+34 verbose addNamed [ 'requset', '2.27.0' ]
+35 verbose addNamed [ '2.27.0', '2.27.0' ]
+36 verbose cache add name="async" spec="0.2.9" args=["async","0.2.9"]
+37 verbose parsed url { protocol: null,
+37 verbose parsed url   slashes: null,
+37 verbose parsed url   auth: null,
+37 verbose parsed url   host: null,
+37 verbose parsed url   port: null,
+37 verbose parsed url   hostname: null,
+37 verbose parsed url   hash: null,
+37 verbose parsed url   search: null,
+37 verbose parsed url   query: null,
+37 verbose parsed url   pathname: '0.2.9',
+37 verbose parsed url   path: '0.2.9',
+37 verbose parsed url   href: '0.2.9' }
+38 verbose addNamed [ 'async', '0.2.9' ]
+39 verbose addNamed [ '0.2.9', '0.2.9' ]
+40 verbose cache add name="mysql" spec="2.x" args=["mysql","2.x"]
+41 verbose parsed url { protocol: null,
+41 verbose parsed url   slashes: null,
+41 verbose parsed url   auth: null,
+41 verbose parsed url   host: null,
+41 verbose parsed url   port: null,
+41 verbose parsed url   hostname: null,
+41 verbose parsed url   hash: null,
+41 verbose parsed url   search: null,
+41 verbose parsed url   query: null,
+41 verbose parsed url   pathname: '2.x',
+41 verbose parsed url   path: '2.x',
+41 verbose parsed url   href: '2.x' }
+42 verbose addNamed [ 'mysql', '2.x' ]
+43 verbose addNamed [ null, '>=2.0.0-0 <3.0.0-0' ]
+44 silly lockFile 432e5064-debug-0-7-2 debug@0.7.2
+45 verbose lock debug@0.7.2 C:\Users\文超\AppData\Roaming\npm-cache\432e5064-debug-0-7-2.lock
+46 silly lockFile b13413e3-cheerio-0-12-3 cheerio@0.12.3
+47 verbose lock cheerio@0.12.3 C:\Users\文超\AppData\Roaming\npm-cache\b13413e3-cheerio-0-12-3.lock
+48 silly lockFile b1fdd98a-requset-2-27-0 requset@2.27.0
+49 verbose lock requset@2.27.0 C:\Users\文超\AppData\Roaming\npm-cache\b1fdd98a-requset-2-27-0.lock
+50 silly lockFile be62480b-async-0-2-9 async@0.2.9
+51 verbose lock async@0.2.9 C:\Users\文超\AppData\Roaming\npm-cache\be62480b-async-0-2-9.lock
+52 silly lockFile 442552e3-mysql-2-x mysql@2.x
+53 verbose lock mysql@2.x C:\Users\文超\AppData\Roaming\npm-cache\442552e3-mysql-2-x.lock
+54 silly addNameRange { name: 'mysql', range: '>=2.0.0-0 <3.0.0-0', hasData: false }
+55 verbose request where is /cheerio
+56 verbose request registry https://registry.npmjs.org/
+57 verbose request id 16e1e0b5757fb032
+58 verbose url raw /cheerio
+59 verbose url resolving [ 'https://registry.npmjs.org/', './cheerio' ]
+60 verbose url resolved https://registry.npmjs.org/cheerio
+61 verbose request where is https://registry.npmjs.org/cheerio
+62 info trying registry request attempt 1 at 10:07:42
+63 http GET https://registry.npmjs.org/cheerio
+64 verbose request where is /requset
+65 verbose request registry https://registry.npmjs.org/
+66 verbose url raw /requset
+67 verbose url resolving [ 'https://registry.npmjs.org/', './requset' ]
+68 verbose url resolved https://registry.npmjs.org/requset
+69 verbose request where is https://registry.npmjs.org/requset
+70 info trying registry request attempt 1 at 10:07:42
+71 http GET https://registry.npmjs.org/requset
+72 verbose request where is /debug
+73 verbose request registry https://registry.npmjs.org/
+74 verbose url raw /debug
+75 verbose url resolving [ 'https://registry.npmjs.org/', './debug' ]
+76 verbose url resolved https://registry.npmjs.org/debug
+77 verbose request where is https://registry.npmjs.org/debug
+78 info trying registry request attempt 1 at 10:07:42
+79 verbose etag "B4SB2Y9JZOQ84SENBEDU723HX"
+80 http GET https://registry.npmjs.org/debug
+81 verbose request where is /async
+82 verbose request registry https://registry.npmjs.org/
+83 verbose url raw /async
+84 verbose url resolving [ 'https://registry.npmjs.org/', './async' ]
+85 verbose url resolved https://registry.npmjs.org/async
+86 verbose request where is https://registry.npmjs.org/async
+87 info trying registry request attempt 1 at 10:07:42
+88 verbose etag "4L77IB3G4SJ394L9NKAE5R51R"
+89 http GET https://registry.npmjs.org/async
+90 verbose request where is /mysql
+91 verbose request registry https://registry.npmjs.org/
+92 verbose url raw /mysql
+93 verbose url resolving [ 'https://registry.npmjs.org/', './mysql' ]
+94 verbose url resolved https://registry.npmjs.org/mysql
+95 verbose request where is https://registry.npmjs.org/mysql
+96 info trying registry request attempt 1 at 10:07:42
+97 verbose etag "CM97X55S8KCOTHV5D5D9VABI7"
+98 http GET https://registry.npmjs.org/mysql
+99 http 200 https://registry.npmjs.org/debug
+100 silly registry.get cb [ 200,
+100 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+100 silly registry.get     etag: '"AWHDSWHZVKR998SXO0MAER9QV"',
+100 silly registry.get     'content-type': 'application/json',
+100 silly registry.get     'cache-control': 'max-age=60',
+100 silly registry.get     'content-length': '34920',
+100 silly registry.get     'accept-ranges': 'bytes',
+100 silly registry.get     date: 'Tue, 14 Jul 2015 02:07:13 GMT',
+100 silly registry.get     via: '1.1 varnish',
+100 silly registry.get     age: '7',
+100 silly registry.get     connection: 'keep-alive',
+100 silly registry.get     'x-served-by': 'cache-lax1422-LAX',
+100 silly registry.get     'x-cache': 'HIT',
+100 silly registry.get     'x-cache-hits': '1',
+100 silly registry.get     'x-timer': 'S1436839633.454907,VS0,VE0',
+100 silly registry.get     vary: 'Accept' } ]
+101 silly lockFile 4134520d--npmjs-org-debug-debug-0-7-2-tgz https://registry.npmjs.org/debug/-/debug-0.7.2.tgz
+102 verbose lock https://registry.npmjs.org/debug/-/debug-0.7.2.tgz C:\Users\文超\AppData\Roaming\npm-cache\4134520d--npmjs-org-debug-debug-0-7-2-tgz.lock
+103 verbose addRemoteTarball [ 'https://registry.npmjs.org/debug/-/debug-0.7.2.tgz',
+103 verbose addRemoteTarball   '056692c86670977f115de82917918b8e8b9a10f0' ]
+104 info retry fetch attempt 1 at 10:07:43
+105 verbose fetch to= C:\Users\文超\AppData\Local\Temp\npm-7148-Nq4NY496\registry.npmjs.org\debug\-\debug-0.7.2.tgz
+106 http GET https://registry.npmjs.org/debug/-/debug-0.7.2.tgz
+107 http 404 https://registry.npmjs.org/requset
+108 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+108 verbose headers   'content-type': 'application/json',
+108 verbose headers   'cache-control': 'max-age=0',
+108 verbose headers   'content-length': '51',
+108 verbose headers   'accept-ranges': 'bytes',
+108 verbose headers   date: 'Tue, 14 Jul 2015 02:07:13 GMT',
+108 verbose headers   via: '1.1 varnish',
+108 verbose headers   age: '0',
+108 verbose headers   connection: 'keep-alive',
+108 verbose headers   'x-served-by': 'cache-lax1423-LAX',
+108 verbose headers   'x-cache': 'MISS',
+108 verbose headers   'x-cache-hits': '0',
+108 verbose headers   'x-timer': 'S1436839633.432089,VS0,VE333' }
+109 silly registry.get cb [ 404,
+109 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+109 silly registry.get     'content-type': 'application/json',
+109 silly registry.get     'cache-control': 'max-age=0',
+109 silly registry.get     'content-length': '51',
+109 silly registry.get     'accept-ranges': 'bytes',
+109 silly registry.get     date: 'Tue, 14 Jul 2015 02:07:13 GMT',
+109 silly registry.get     via: '1.1 varnish',
+109 silly registry.get     age: '0',
+109 silly registry.get     connection: 'keep-alive',
+109 silly registry.get     'x-served-by': 'cache-lax1423-LAX',
+109 silly registry.get     'x-cache': 'MISS',
+109 silly registry.get     'x-cache-hits': '0',
+109 silly registry.get     'x-timer': 'S1436839633.432089,VS0,VE333' } ]
+110 silly lockFile b1fdd98a-requset-2-27-0 requset@2.27.0
+111 silly lockFile b1fdd98a-requset-2-27-0 requset@2.27.0
+112 http 200 https://registry.npmjs.org/mysql
+113 silly registry.get cb [ 200,
+113 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+113 silly registry.get     etag: '"4LWXHUOLTR5DNKCTUXURZ8YBY"',
+113 silly registry.get     'content-type': 'application/json',
+113 silly registry.get     'cache-control': 'max-age=60',
+113 silly registry.get     'content-length': '112281',
+113 silly registry.get     'accept-ranges': 'bytes',
+113 silly registry.get     date: 'Tue, 14 Jul 2015 02:07:13 GMT',
+113 silly registry.get     via: '1.1 varnish',
+113 silly registry.get     age: '22',
+113 silly registry.get     connection: 'keep-alive',
+113 silly registry.get     'x-served-by': 'cache-lax1431-LAX',
+113 silly registry.get     'x-cache': 'HIT',
+113 silly registry.get     'x-cache-hits': '8',
+113 silly registry.get     'x-timer': 'S1436839633.467587,VS0,VE0',
+113 silly registry.get     vary: 'Accept' } ]
+114 http 200 https://registry.npmjs.org/cheerio
+115 silly registry.get cb [ 200,
+115 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+115 silly registry.get     etag: '"1I0WU35W3I1LEE31OH3WSTI6Z"',
+115 silly registry.get     'content-type': 'application/json',
+115 silly registry.get     'cache-control': 'max-age=60',
+115 silly registry.get     'content-length': '91227',
+115 silly registry.get     'accept-ranges': 'bytes',
+115 silly registry.get     date: 'Tue, 14 Jul 2015 02:07:13 GMT',
+115 silly registry.get     via: '1.1 varnish',
+115 silly registry.get     age: '0',
+115 silly registry.get     connection: 'keep-alive',
+115 silly registry.get     'x-served-by': 'cache-lax1431-LAX',
+115 silly registry.get     'x-cache': 'HIT',
+115 silly registry.get     'x-cache-hits': '1',
+115 silly registry.get     'x-timer': 'S1436839633.433963,VS0,VE88',
+115 silly registry.get     vary: 'Accept' } ]
+116 silly addNameRange number 2 { name: 'mysql', range: '>=2.0.0-0 <3.0.0-0', hasData: true }
+117 silly addNameRange versions [ 'mysql',
+117 silly addNameRange   [ '0.1.0',
+117 silly addNameRange     '0.2.0',
+117 silly addNameRange     '0.3.0',
+117 silly addNameRange     '0.4.0',
+117 silly addNameRange     '0.5.0',
+117 silly addNameRange     '0.6.0',
+117 silly addNameRange     '0.7.0',
+117 silly addNameRange     '0.8.0',
+117 silly addNameRange     '0.9.0',
+117 silly addNameRange     '0.9.1',
+117 silly addNameRange     '0.9.2',
+117 silly addNameRange     '0.9.3',
+117 silly addNameRange     '0.9.4',
+117 silly addNameRange     '0.9.5',
+117 silly addNameRange     '0.9.6',
+117 silly addNameRange     '2.0.0-alpha',
+117 silly addNameRange     '2.0.0-alpha2',
+117 silly addNameRange     '2.0.0-alpha3',
+117 silly addNameRange     '2.0.0-alpha4',
+117 silly addNameRange     '2.0.0-alpha5',
+117 silly addNameRange     '2.0.0-alpha6',
+117 silly addNameRange     '2.0.0-alpha7',
+117 silly addNameRange     '2.0.0-alpha8',
+117 silly addNameRange     '2.0.0-alpha9',
+117 silly addNameRange     '2.0.0-rc1',
+117 silly addNameRange     '2.0.0-rc2',
+117 silly addNameRange     '2.0.0',
+117 silly addNameRange     '2.0.1',
+117 silly addNameRange     '2.1.0',
+117 silly addNameRange     '2.1.1',
+117 silly addNameRange     '2.2.0',
+117 silly addNameRange     '2.3.0',
+117 silly addNameRange     '2.3.1',
+117 silly addNameRange     '2.3.2',
+117 silly addNameRange     '2.4.0',
+117 silly addNameRange     '2.4.1',
+117 silly addNameRange     '2.4.2',
+117 silly addNameRange     '2.4.3',
+117 silly addNameRange     '2.5.0',
+117 silly addNameRange     '2.5.1',
+117 silly addNameRange     '2.5.2',
+117 silly addNameRange     '2.5.3',
+117 silly addNameRange     '2.5.4',
+117 silly addNameRange     '2.5.5',
+117 silly addNameRange     '2.6.0',
+117 silly addNameRange     '2.6.1',
+117 silly addNameRange     '2.6.2',
+117 silly addNameRange     '2.7.0' ] ]
+118 verbose addNamed [ 'mysql', '2.7.0' ]
+119 verbose addNamed [ '2.7.0', '2.7.0' ]
+120 silly lockFile 4f785a10-mysql-2-7-0 mysql@2.7.0
+121 verbose lock mysql@2.7.0 C:\Users\文超\AppData\Roaming\npm-cache\4f785a10-mysql-2-7-0.lock
+122 silly lockFile 7bf2141c-s-org-cheerio-cheerio-0-12-3-tgz https://registry.npmjs.org/cheerio/-/cheerio-0.12.3.tgz
+123 verbose lock https://registry.npmjs.org/cheerio/-/cheerio-0.12.3.tgz C:\Users\文超\AppData\Roaming\npm-cache\7bf2141c-s-org-cheerio-cheerio-0-12-3-tgz.lock
+124 silly lockFile bb2ded36--npmjs-org-mysql-mysql-2-7-0-tgz https://registry.npmjs.org/mysql/-/mysql-2.7.0.tgz
+125 verbose lock https://registry.npmjs.org/mysql/-/mysql-2.7.0.tgz C:\Users\文超\AppData\Roaming\npm-cache\bb2ded36--npmjs-org-mysql-mysql-2-7-0-tgz.lock
+126 verbose addRemoteTarball [ 'https://registry.npmjs.org/cheerio/-/cheerio-0.12.3.tgz',
+126 verbose addRemoteTarball   '8eb05ace0a3fc72d9d9ce0b5d364fe8bb565d7fa' ]
+127 verbose addRemoteTarball [ 'https://registry.npmjs.org/mysql/-/mysql-2.7.0.tgz',
+127 verbose addRemoteTarball   '02f99c0ecada01c1dca100d96a6202f40c88261d' ]
+128 info retry fetch attempt 1 at 10:07:43
+129 verbose fetch to= C:\Users\文超\AppData\Local\Temp\npm-7148-Nq4NY496\registry.npmjs.org\cheerio\-\cheerio-0.12.3.tgz
+130 info retry fetch attempt 1 at 10:07:43
+131 verbose fetch to= C:\Users\文超\AppData\Local\Temp\npm-7148-Nq4NY496\registry.npmjs.org\mysql\-\mysql-2.7.0.tgz
+132 http GET https://registry.npmjs.org/cheerio/-/cheerio-0.12.3.tgz
+133 http GET https://registry.npmjs.org/mysql/-/mysql-2.7.0.tgz
+134 http 200 https://registry.npmjs.org/async
+135 silly registry.get cb [ 200,
+135 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+135 silly registry.get     etag: '"103XCI8JFLVCH6WX7I2NZR3KJ"',
+135 silly registry.get     'content-type': 'application/json',
+135 silly registry.get     'cache-control': 'max-age=60',
+135 silly registry.get     'content-length': '125392',
+135 silly registry.get     'accept-ranges': 'bytes',
+135 silly registry.get     date: 'Tue, 14 Jul 2015 02:07:13 GMT',
+135 silly registry.get     via: '1.1 varnish',
+135 silly registry.get     age: '17',
+135 silly registry.get     connection: 'keep-alive',
+135 silly registry.get     'x-served-by': 'cache-lax1430-LAX',
+135 silly registry.get     'x-cache': 'HIT',
+135 silly registry.get     'x-cache-hits': '2',
+135 silly registry.get     'x-timer': 'S1436839633.458393,VS0,VE0',
+135 silly registry.get     vary: 'Accept' } ]
+136 silly lockFile c060db57--npmjs-org-async-async-0-2-9-tgz https://registry.npmjs.org/async/-/async-0.2.9.tgz
+137 verbose lock https://registry.npmjs.org/async/-/async-0.2.9.tgz C:\Users\文超\AppData\Roaming\npm-cache\c060db57--npmjs-org-async-async-0-2-9-tgz.lock
+138 verbose addRemoteTarball [ 'https://registry.npmjs.org/async/-/async-0.2.9.tgz',
+138 verbose addRemoteTarball   'df63060fbf3d33286a76aaf6d55a2986d9ff8619' ]
+139 info retry fetch attempt 1 at 10:07:43
+140 verbose fetch to= C:\Users\文超\AppData\Local\Temp\npm-7148-Nq4NY496\registry.npmjs.org\async\-\async-0.2.9.tgz
+141 http GET https://registry.npmjs.org/async/-/async-0.2.9.tgz
+142 http 200 https://registry.npmjs.org/debug/-/debug-0.7.2.tgz
+143 silly lockFile 4134520d--npmjs-org-debug-debug-0-7-2-tgz https://registry.npmjs.org/debug/-/debug-0.7.2.tgz
+144 silly lockFile 4134520d--npmjs-org-debug-debug-0-7-2-tgz https://registry.npmjs.org/debug/-/debug-0.7.2.tgz
+145 silly lockFile 432e5064-debug-0-7-2 debug@0.7.2
+146 silly lockFile 432e5064-debug-0-7-2 debug@0.7.2
+147 http 200 https://registry.npmjs.org/cheerio/-/cheerio-0.12.3.tgz
+148 http 200 https://registry.npmjs.org/mysql/-/mysql-2.7.0.tgz
+149 silly lockFile 7bf2141c-s-org-cheerio-cheerio-0-12-3-tgz https://registry.npmjs.org/cheerio/-/cheerio-0.12.3.tgz
+150 silly lockFile 7bf2141c-s-org-cheerio-cheerio-0-12-3-tgz https://registry.npmjs.org/cheerio/-/cheerio-0.12.3.tgz
+151 silly lockFile b13413e3-cheerio-0-12-3 cheerio@0.12.3
+152 silly lockFile b13413e3-cheerio-0-12-3 cheerio@0.12.3
+153 http 200 https://registry.npmjs.org/async/-/async-0.2.9.tgz
+154 silly lockFile c060db57--npmjs-org-async-async-0-2-9-tgz https://registry.npmjs.org/async/-/async-0.2.9.tgz
+155 silly lockFile c060db57--npmjs-org-async-async-0-2-9-tgz https://registry.npmjs.org/async/-/async-0.2.9.tgz
+156 silly lockFile be62480b-async-0-2-9 async@0.2.9
+157 silly lockFile be62480b-async-0-2-9 async@0.2.9
+158 silly lockFile bb2ded36--npmjs-org-mysql-mysql-2-7-0-tgz https://registry.npmjs.org/mysql/-/mysql-2.7.0.tgz
+159 silly lockFile bb2ded36--npmjs-org-mysql-mysql-2-7-0-tgz https://registry.npmjs.org/mysql/-/mysql-2.7.0.tgz
+160 silly lockFile 4f785a10-mysql-2-7-0 mysql@2.7.0
+161 silly lockFile 4f785a10-mysql-2-7-0 mysql@2.7.0
+162 silly lockFile 442552e3-mysql-2-x mysql@2.x
+163 silly lockFile 442552e3-mysql-2-x mysql@2.x
+164 error 404 404 Not Found: requset
+164 error 404
+164 error 404 'requset' is not in the npm registry.
+164 error 404 You should bug the author to publish it
+164 error 404 It was specified as a dependency of 'sina-blog-proxy'
+164 error 404
+164 error 404 Note that you can also install from a
+164 error 404 tarball, folder, or http url, or git url.
+165 error System Windows_NT 6.2.9200
+166 error command "I:\\nodejs\\\\node.exe" "I:\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install"
+167 error cwd I:\git\node\spider
+168 error node -v v0.10.35
+169 error npm -v 1.4.28
+170 error code E404
+171 verbose exit [ 1, true ]
