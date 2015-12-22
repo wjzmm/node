@@ -1,0 +1,9 @@
+{
+  "name": "ras",
+  "version": "0.0.1",
+  "private": true,
+  "main":"app.js",
+  "dependencies": {
+    "request": "2.27.0"
+  }
+}
